@@ -1,15 +1,37 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../contexts/AuthProvider";
 
 const Navbar = () => {
+  const { logOut, user } = useContext(AuthContext);
 
-    const menuItems = <>
-
-    <li><Link to='/'>Home</Link></li>
-    <li><Link to='/appointment'>Appointment</Link></li>
-    <li><Link to='/reviews'>Reviews</Link></li>
-    <li><Link to='/login'>Login</Link></li>
+  const menuItems = (
+    <>
+      <li>
+        <Link to="/">Home</Link>
+      </li>
+      <li>
+        <Link to="/appointment">Appointment</Link>
+      </li>
+      <li>
+        <Link to="/reviews">Reviews</Link>
+      </li>
+      {user?.uid ? (
+        <>
+          <li>
+            <Link to="/dashboard">Dashboard</Link>
+          </li>
+          <li>
+            <button onClick={logOut}>Log out</button>
+          </li>
+        </>
+      ) : (
+        <li>
+          <Link to="/login">Login</Link>
+        </li>
+      )}
     </>
+  );
   return (
     <div className="navbar bg-base-100 flex justify-between">
       <div className="navbar-start">
@@ -34,15 +56,15 @@ const Navbar = () => {
             tabIndex={0}
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
-           {menuItems}
+            {menuItems}
           </ul>
         </div>
-        <Link to='/' className="btn btn-ghost normal-case text-xl">Doctors Portal</Link>
+        <Link to="/" className="btn btn-ghost normal-case text-xl">
+          Doctors Portal
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal p-0">
-         {menuItems}
-        </ul>
+        <ul className="menu menu-horizontal p-0">{menuItems}</ul>
       </div>
     </div>
   );
