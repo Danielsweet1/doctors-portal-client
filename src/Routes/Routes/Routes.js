@@ -1,10 +1,8 @@
-import el from "date-fns/esm/locale/el/index.js";
 import { createBrowserRouter } from "react-router-dom";
 import DashBoardLayout from "../../Layouts/DashBoardLayout";
 import Main from "../../Layouts/Main";
 import Appointment from "../../Pages/Appoinment/Appointment";
 import AllUsers from "../../Pages/Dashboard/AllUsers/AllUsers";
-import Dashboard from "../../Pages/Dashboard/Dashboard";
 import MyAppointments from "../../Pages/Dashboard/MyAppointments/MyAppointments";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
