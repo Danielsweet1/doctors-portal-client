@@ -29,7 +29,7 @@ const AllUsers = () => {
   };
   return (
     <div>
-      <h2 className="text-2xl">All Users</h2>
+      <h2 className="text-2xl m-3 text-center">All Users</h2>
       <div className="overflow-x-auto">
         <table className="table w-full">
           <thead>
